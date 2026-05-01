@@ -2,9 +2,12 @@ package main
 
 import (
 	"course-go/config"
-	"fmt"
+	"course-go/server"
 )
 func main() {
 	config := config.LoadConfig()
-	fmt.Printf("Server running on port %s\n", config.Port)
+
+	app := server.NewApp()
+	app.RunServer(config.Port)
+
 }
